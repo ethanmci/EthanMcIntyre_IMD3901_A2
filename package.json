@@ -1,0 +1,22 @@
+{
+  "name": "ethanmcintyre_imd3901_a2",
+  "version": "1.0.0",
+  "description": "Assignment 2 for IMD3901",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanmci/EthanMcIntyre_IMD3901_A2.git"
+  },
+  "author": "Ethan McIntyre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethanmci/EthanMcIntyre_IMD3901_A2/issues"
+  },
+  "homepage": "https://github.com/ethanmci/EthanMcIntyre_IMD3901_A2#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
