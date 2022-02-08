@@ -116,7 +116,7 @@ function animateInRemoveButton() {
     slideSound.setAttribute('sound', 'src: #slide_sound; autoplay: true; volume: 1.0;');
     removeHorrorGroup.appendChild(slideSound);
     removeHorrorGroup.setAttribute('animation', 'property:position; from: -2 -3 2; to: -2 0 2; dur: 4000;');
-    removeHorrorPrompt.setAttribute('animation', 'property:text.opacity; from:1; to:0; autoplay: true; dur:4000; delay: 4000;');
+    removeHorrorPrompt.setAttribute('animation', 'property:text.opacity; from:1; to:0; autoplay: true; dur:4000; delay: 20000;');
 }
 
 // moves and places a skeleton
@@ -155,6 +155,11 @@ function spawnSkeleton() {
     // spawning the skeleton in a random spot within the room (past the button)
     let initPositionX = randNum(0, 9, true);
     let initPositionZ = randNum(3, 6, false);
+    if(!hasSpawnedSkeleton) {
+        // placing the "tutorial skeleton" in plain view
+        initPositionX = 0;
+        initPositionZ = 5;
+    }
     newSkeleton.setAttribute('rotation', `0 180 0`);
     // creating initial animation for the skeleton
     newSkeleton.setAttribute('animation', `property:position; from:${initPositionX} -3 ${initPositionZ}; to:${initPositionX} 0 ${initPositionZ}; dir: alternate; autoplay: true; dur:700`);
@@ -171,6 +176,11 @@ function spawnSkeleton() {
     if(!hasSpawnedSkeleton) {
         hasSpawnedSkeleton = true;
         animateInRemoveButton();
+        var moveSkeletonPrompt = document.createElement('a-entity');
+        moveSkeletonPrompt.setAttribute('text', 'font: mozillavr; value: Click on a skeleton to move it. Click again to place.; width: 6; align: center;');
+        moveSkeletonPrompt.setAttribute('animation', 'property:text.opacity; from:1; to:0; autoplay: true; dur:4000; delay: 10000;');
+        moveSkeletonPrompt.setAttribute('position', '0 2 0.7');
+        newSkeleton.appendChild(moveSkeletonPrompt);
     }
 }
 
